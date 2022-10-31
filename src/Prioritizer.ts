@@ -1,6 +1,6 @@
 import {Transaction} from './Transaction';
 import {TransactionPrioritizer} from './TransactionPrioritizer';
-import {CSVReader} from './CSVReader';
+import {TransactionReader} from './TransactionReader';
 
 /**
  * This class is responsible for taking in csv file
@@ -9,7 +9,7 @@ import {CSVReader} from './CSVReader';
 export class Prioritizer {
   readonly filePath: string;
   private transactionPrioritizer: TransactionPrioritizer;
-  private csvReader: CSVReader;
+  private transactionReader: TransactionReader;
   private ready = false;
 
   constructor(filePath: string) {
@@ -18,9 +18,9 @@ export class Prioritizer {
 
   async init() {
     console.log('Initializing CSV Reader....');
-    this.csvReader = new CSVReader(this.filePath);
+    this.transactionReader = new TransactionReader(this.filePath);
     console.log('Reading Transactions ....');
-    const transactions = await this.csvReader.read();
+    const transactions = await this.transactionReader.read();
     this.transactionPrioritizer = new TransactionPrioritizer(transactions);
     this.ready = true;
   }

@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import path from 'path';
-import {CSVReader} from '../CSVReader';
+import {TransactionReader} from '../TransactionReader';
 import {Transaction} from '../Transaction';
 import {TransactionPrioritizer} from '../TransactionPrioritizer';
 
 async function getSampleTransactions() {
-  const csvReader = new CSVReader(
+  const transactionReader = new TransactionReader(
     path.join(__dirname, 'sample_transaction.csv')
   );
 
-  return csvReader.read();
+  return transactionReader.read();
 }
 
 describe('TransactionProcessor', () => {

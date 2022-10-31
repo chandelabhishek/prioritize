@@ -18,7 +18,9 @@ const prioritizer = new Prioritizer(csvFilePath);
 prioritizer
   .init()
   .then(() => {
-    prioritizer.prioritize(40);
-    prioritizer.prioritize(60);
+    console.log(prioritizer.prioritize(50)); // time supplied in ms
+    console.log(prioritizer.prioritize(60)); // time supplied in ms
+    console.log(prioritizer.prioritize(90)); // time supplied in ms
+    console.log(prioritizer.prioritize(1000)); // time supplied in ms
   })
   .catch(console.error);

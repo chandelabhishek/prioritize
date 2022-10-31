@@ -1,14 +1,14 @@
 import path from 'path';
-import {CSVReader} from '../CSVReader';
+import {TransactionReader} from '../TransactionReader';
 import {Transaction} from '../Transaction';
 
-describe('CSVReader', () => {
+describe('TransactionReader', () => {
   it('should read CSV file and return transactions', async () => {
-    const csvReader = new CSVReader(
+    const transactionReader = new TransactionReader(
       path.join(__dirname, 'sample_transaction.csv')
     );
 
-    const transactions: Transaction[] = await csvReader.read();
+    const transactions: Transaction[] = await transactionReader.read();
 
     expect(transactions).toStrictEqual([
       new Transaction('dde3165e-a7e9-4dac-984b-4aa5f32a45e2', 6.44, 'tr'),

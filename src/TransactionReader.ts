@@ -4,7 +4,7 @@ import {finished} from 'stream/promises';
 import {Transaction} from './Transaction';
 import latencies from '../latencies.json';
 
-export class CSVReader {
+export class TransactionReader {
   private path: string;
   constructor(path: string) {
     this.path = path;

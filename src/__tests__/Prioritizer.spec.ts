@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import {Prioritizer} from '../Prioritizer';
-import {CSVReader} from '../CSVReader';
+import {TransactionReader} from '../TransactionReader';
 import {TransactionPrioritizer} from '../TransactionPrioritizer';
 jest.mock('../TransactionPrioritizer');
-jest.mock('../CSVReader');
+jest.mock('../TransactionReader');
 describe('Prioritize', () => {
   beforeEach(() => {
     jest.resetAllMocks();
@@ -14,13 +14,13 @@ describe('Prioritize', () => {
     const prioritizer = new Prioritizer('filePath');
     await prioritizer.init();
     expect(prioritizer.filePath).toBe('filePath');
-    expect(CSVReader).toHaveBeenCalled();
+    expect(TransactionReader).toHaveBeenCalled();
     expect(TransactionPrioritizer).toHaveBeenCalled();
-    const csvReaderInstance = CSVReader.mock.instances[0];
+    const TransactionReaderInstance = TransactionReader.mock.instances[0];
     prioritizer.prioritize(40);
 
-    expect(csvReaderInstance.read).toHaveBeenCalled();
-    expect(CSVReader.mock.calls[0][0]).toBe('filePath');
+    expect(TransactionReaderInstance.read).toHaveBeenCalled();
+    expect(TransactionReader.mock.calls[0][0]).toBe('filePath');
     expect(
       TransactionPrioritizer.mock.instances[0].prioritize
     ).toHaveBeenCalled();

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "prioritize fraud detection calls",
   "main": "index.ts",
+  "engines": {
+    "node": ">=16.14.2"
+  },
   "scripts": {
     "test": "jest",
     "lint": "gts lint",
