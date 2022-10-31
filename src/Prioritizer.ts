@@ -1,5 +1,5 @@
 import {Transaction} from './Transaction';
-import {TransactionPrioritizer} from './TransctionPrioritizer';
+import {TransactionPrioritizer} from './TransactionPrioritizer';
 import {CSVReader} from './CSVReader';
 
 /**

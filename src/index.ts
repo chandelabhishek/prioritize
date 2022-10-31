@@ -1,6 +1,5 @@
 import {join} from 'path';
 import {Prioritizer} from './Prioritizer';
-import {Transaction} from './Transaction';
 
 /**
  *
@@ -19,7 +18,7 @@ const prioritizer = new Prioritizer(csvFilePath);
 prioritizer
   .init()
   .then(() => {
-    prioritizer.prioritize(40).then(console.log);
-    prioritizer.prioritize(60).then(console.log);
+    prioritizer.prioritize(40);
+    prioritizer.prioritize(60);
   })
   .catch(console.error);

@@ -14,7 +14,7 @@ export class TransactionPrioritizer {
 
   constructor(transactions: Transaction[]) {
     this.transactions = transactions;
-    this.dp = Array.from({length: transactions.length + 1}).map(() =>
+    this.dp = Array.from({length: (transactions?.length || 0) + 1}).map(() =>
       Array.from({length: MAX_TOTAL_TIME})
     );
   }

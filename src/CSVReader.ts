@@ -12,16 +12,23 @@ export class CSVReader {
 
   private async processFile(): Promise<Transaction[]> {
     const transactions: Transaction[] = [];
-    const parser = fs.createReadStream(this.path).pipe(parse());
+    const parser = fs
+      .createReadStream(this.path)
+      .pipe(parse({columns: true, skip_empty_lines: true, cast: true}));
+
     parser.on('readable', () => {
-      let transaction: [string, string, keyof typeof latencies];
+      let transaction: {
+        id: string;
+        amount: number;
+        bank_country_code: keyof typeof latencies;
+      };
 
       while ((transaction = parser.read()) !== null) {
         transactions.push(
           new Transaction(
-            transaction?.[0],
-            parseFloat(transaction?.[1]),
-            transaction?.[2]
+            transaction.id,
+            transaction.amount,
+            transaction.bank_country_code
           )
         );
       }
