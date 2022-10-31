@@ -1,0 +1,35 @@
+{
+  "name": "prioritize",
+  "version": "1.0.0",
+  "description": "prioritize fraud detection calls",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "prioritize": "node build/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandelabhishek/prioritize.git"
+  },
+  "author": "Abhishek Chandel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chandelabhishek/prioritize/issues"
+  },
+  "homepage": "https://github.com/chandelabhishek/prioritize#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.7",
+    "gts": "^3.1.1",
+    "typescript": "~4.7.0"
+  },
+  "dependencies": {
+    "csv-parse": "^5.3.1"
+  }
+}
