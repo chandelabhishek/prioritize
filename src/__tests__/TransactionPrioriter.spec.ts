@@ -18,10 +18,13 @@ describe('TransactionProcessor', () => {
     const transactions = await getSampleTransactions();
     const transactionPrioritizer = new TransactionPrioritizer(transactions);
 
-    expect(transactionPrioritizer.prioritize(100)).toStrictEqual([
-      new Transaction('a3d2343c-ee13-4947-8815-aac418997fdc', 88.57, 'us'),
-      new Transaction('95c6e393-e3dd-499e-b6bf-d075fc2abbc5', 9.31, 'uk'),
-    ]);
+    expect(transactionPrioritizer.prioritize(100)).toStrictEqual({
+      maxAmount: 97.88,
+      transactions: [
+        new Transaction('a3d2343c-ee13-4947-8815-aac418997fdc', 88.57, 'us'),
+        new Transaction('95c6e393-e3dd-499e-b6bf-d075fc2abbc5', 9.31, 'uk'),
+      ],
+    });
   });
 
   it('should throw error when transaction list is not passed', async () => {

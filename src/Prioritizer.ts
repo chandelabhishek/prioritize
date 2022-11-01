@@ -25,7 +25,10 @@ export class Prioritizer {
     this.ready = true;
   }
 
-  prioritize(totalTime: number): Transaction[] {
+  prioritize(totalTime: number): {
+    maxAmount: number;
+    transactions: Transaction[];
+  } {
     if (!this.ready) {
       throw new Error('Prioritizer is not initialized, call `init` method');
     }
