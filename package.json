@@ -14,7 +14,7 @@
     "fix": "gts fix",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "prioritize": "node build/src/index.js"
+    "prioritize": "npm run compile && node build/src/index.js"
   },
   "repository": {
     "type": "git",
