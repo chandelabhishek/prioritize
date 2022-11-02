@@ -2,6 +2,19 @@
 
 https://gist.github.com/Valve/834d7122ca75dc58d28c3e4be5a15506
 
+#### What is the max USD value that can be processed in 50ms, 60ms, 90ms, 1000ms?
+
+#### Answer
+
+```
+time         maxAmount in USD
+
+50ms           4139.43
+60ms           4675.71
+90ms           6972.29
+1000ms         35471.81
+```
+
 ## Prerequisites:
 
 node >= 16.14.2 is only pre-requisite
@@ -10,7 +23,7 @@ node >= 16.14.2 is only pre-requisite
 
 1. Clone the repo
 2. `npm i`
-3. `npm run prioritize` (Run this to get answer to the asked question:- What is the max USD value that can be processed in 50ms, 60ms, 90ms, 1000ms?)
+3. `npm run prioritize` (Run this to get answer to the asked question)
 
 ## Code Organisation
 
